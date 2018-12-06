@@ -1,0 +1,50 @@
+--Query 1:
+	--Find total number of favorites for all the Tweets.
+		Select sum(favoritecount) from tweets;
+ 
+
+
+
+--Query 2:
+--Find how many tweets contain the word Trump.
+	Select count(text) from tweets where text like “%Trump%” or text like “%trump%”; 
+	 
+
+--Query 3
+--Find how many tweets are from the Northern hemisphere.
+	Select count(text) from tweets where latitude > 0;
+ 
+--Query 4
+--See how many tweets are from the southern hemisphere.
+Select count(text) from tweets where latitude < 0;
+ 
+--I should have gotten a total of 100000 between this query and the last. The problem turns out that a vast majority of the tweets don’t share their location.
+
+--Query 5
+--Find out how many Tweets contain the word the.
+Select count(text) from tweets where text like “%the%”;
+ 
+
+--Query 6
+--Find out the most common latitude and longitude for the tweets;
+Select avg(latitude) from tweets;
+ 
+--Query 7
+--Find the most common longitude in the Tweets.
+Select avg(longitude) from tweets;
+ 
+
+--Query 8
+--Find out what how many Tweets contain user generated content.
+Select count(text) from tweets where text like “%User%” and text like “%Genereated%”;
+ 
+
+--Query 9
+--Find out how many total retweets are in the dataset.
+Select sum(retweetcount) from tweets;
+ 
+
+--Query 10
+--Find out how long the longest tweet is.
+Select max(length(text)) from tweets;
+ 
